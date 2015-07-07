@@ -18,41 +18,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 """
-dogecoin-python - Easy-to-use Dogecoin API client
+sjwcoin-python - Easy-to-use SJWcoin API client
 """
 
 
 def connect_to_local(filename=None):
     """
-    Connect to default dogecoin instance owned by this user, on this machine.
+    Connect to default sjwcoin instance owned by this user, on this machine.
 
-    Returns a :class:`~dogecoinrpc.connection.DogecoinConnection` object.
+    Returns a :class:`~sjwcoinrpc.connection.SJWcoinConnection` object.
 
     Arguments:
 
         - `filename`: Path to a configuration file in a non-standard location (optional)
     """
-    from dogecoinrpc.connection import DogecoinConnection
-    from dogecoinrpc.config import read_default_config
+    from sjwcoinrpc.connection import SJWcoinConnection
+    from sjwcoinrpc.config import read_default_config
 
     cfg = read_default_config(filename)
     if cfg is None:
         cfg = {}
-    #port = int(cfg.get('rpcport', '18332' if cfg.get('testnet') else '22555'))
-    port = int(cfg.get('rpcport', '22555'))
+    #port = int(cfg.get('rpcport', '18332' if cfg.get('testnet') else '19965'))
+    port = int(cfg.get('rpcport', '19965'))
     rpcuser = cfg.get('rpcuser', '')
     rpcpassword = cfg.get('rpcpassword', '')
 
-    return DogecoinConnection(rpcuser, rpcpassword, 'localhost', port)
+    return SJWcoinConnection(rpcuser, rpcpassword, 'localhost', port)
 
 
-def connect_to_remote(user, password, host='localhost', port=22555,
+def connect_to_remote(user, password, host='localhost', port=19965,
                       use_https=False):
     """
-    Connect to remote or alternative local dogecoin client instance.
+    Connect to remote or alternative local sjwcoin client instance.
 
-    Returns a :class:`~dogecoinrpc.connection.DogecoinConnection` object.
+    Returns a :class:`~sjwcoinrpc.connection.SJWcoinConnection` object.
     """
-    from dogecoinrpc.connection import DogecoinConnection
+    from sjwcoinrpc.connection import SJWcoinConnection
 
-    return DogecoinConnection(user, password, host, port, use_https)
+    return SJWcoinConnection(user, password, host, port, use_https)

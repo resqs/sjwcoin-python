@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 """
-Utilities for reading dogecoin configuration files.
+Utilities for reading sjwcoin configuration files.
 """
 
 
@@ -46,7 +46,7 @@ def read_config_file(filename):
 
 def read_default_config(filename=None):
     """
-    Read dogecoin default configuration from the current user's home directory.
+    Read sjwcoin default configuration from the current user's home directory.
 
     Arguments:
 
@@ -60,11 +60,11 @@ def read_default_config(filename=None):
             raise IOError("Home directory not defined, don't know where to look for config file")
 
         if platform.system() == "Darwin":
-            location = 'Library/Application Support/Dogecoin/dogecoin.conf'
+            location = 'Library/Application Support/SJWcoin/sjwcoin.conf'
         elif platform.system() in ('Windows', 'Microsoft'): 
-            location = 'AppData\\Roaming\\DogeCoin\\dogecoin.conf'
+            location = 'AppData\\Roaming\\SJWCoin\\sjwcoin.conf'
         else:
-            location = '.dogecoin/dogecoin.conf'
+            location = '.sjwcoin/sjwcoin.conf'
         filename = os.path.join(home, location)
 
     elif filename.startswith("~"):

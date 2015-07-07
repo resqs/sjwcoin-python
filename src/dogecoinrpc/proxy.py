@@ -31,7 +31,7 @@ try:
 except ImportError:
     import urlparse
 from collections import defaultdict, deque
-from dogecoinrpc.exceptions import TransportException
+from sjwcoinrpc.exceptions import TransportException
 
 USER_AGENT = "AuthServiceProxy/0.1"
 
@@ -76,7 +76,7 @@ class HTTPTransport(object):
             self._raise_exception({
                 'code': -342, 'message': 'missing HTTP response from server'})
         elif httpresp.status == httplib.FORBIDDEN:
-            msg = "dogecoind returns 403 Forbidden. Is your IP allowed?"
+            msg = "sjwcoind returns 403 Forbidden. Is your IP allowed?"
             raise TransportException(msg, code=403,
                                      protocol=self.parsed_url.scheme,
                                      raw_detail=httpresp)

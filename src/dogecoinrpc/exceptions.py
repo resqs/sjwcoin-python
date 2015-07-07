@@ -22,11 +22,11 @@ Exception definitions.
 """
 
 
-class DogecoinException(Exception):
+class SJWcoinException(Exception):
     """
-    Base class for exceptions received from Dogecoin server.
+    Base class for exceptions received from SJWcoin server.
 
-    - *code* -- Error code from ``dogecoind``.
+    - *code* -- Error code from ``sjwcoind``.
     """
     # Standard JSON-RPC 2.0 errors
     INVALID_REQUEST  = -32600,
@@ -46,7 +46,7 @@ class DogecoinException(Exception):
     DESERIALIZATION_ERROR       = -22 # Error parsing or validating structure in raw format
 
     # P2P client errors
-    CLIENT_NOT_CONNECTED        = -9  # Dogecoin is not connected
+    CLIENT_NOT_CONNECTED        = -9  # SJWcoin is not connected
     CLIENT_IN_INITIAL_DOWNLOAD  = -10 # Still downloading initial blocks
 
     # Wallet errors
@@ -85,40 +85,40 @@ class TransportException(Exception):
 
 
 ##### General application defined errors
-class SafeMode(DogecoinException):
+class SafeMode(SJWcoinException):
     """
-    Operation denied in safe mode (run ``dogecoind`` with ``-disablesafemode``).
+    Operation denied in safe mode (run ``sjwcoind`` with ``-disablesafemode``).
     """
 
 
-class JSONTypeError(DogecoinException):
+class JSONTypeError(SJWcoinException):
     """
     Unexpected type was passed as parameter
     """
 InvalidAmount = JSONTypeError  # Backwards compatibility
 
 
-class InvalidAddressOrKey(DogecoinException):
+class InvalidAddressOrKey(SJWcoinException):
     """
     Invalid address or key.
     """
 InvalidTransactionID = InvalidAddressOrKey  # Backwards compatibility
 
 
-class OutOfMemory(DogecoinException):
+class OutOfMemory(SJWcoinException):
     """
     Out of memory during operation.
     """
 
 
-class InvalidParameter(DogecoinException):
+class InvalidParameter(SJWcoinException):
     """
     Invalid parameter provided to RPC call.
     """
 
 
 ##### Client errors
-class ClientException(DogecoinException):
+class ClientException(SJWcoinException):
     """
     P2P network error.
     This exception is never raised but functions as a superclass
@@ -139,7 +139,7 @@ class DownloadingBlocks(ClientException):
 
 
 ##### Wallet errors
-class WalletError(DogecoinException):
+class WalletError(SJWcoinException):
     """
     Unspecified problem with wallet (key not found etc.)
     """
@@ -197,31 +197,31 @@ class WalletAlreadyUnlocked(WalletError):
 # For convenience, we define more specific exception classes
 # for the more common errors.
 _exception_map = {
-    DogecoinException.FORBIDDEN_BY_SAFE_MODE: SafeMode,
-    DogecoinException.TYPE_ERROR: JSONTypeError,
-    DogecoinException.WALLET_ERROR: WalletError,
-    DogecoinException.INVALID_ADDRESS_OR_KEY: InvalidAddressOrKey,
-    DogecoinException.WALLET_INSUFFICIENT_FUNDS: InsufficientFunds,
-    DogecoinException.OUT_OF_MEMORY: OutOfMemory,
-    DogecoinException.INVALID_PARAMETER: InvalidParameter,
-    DogecoinException.CLIENT_NOT_CONNECTED: NotConnected,
-    DogecoinException.CLIENT_IN_INITIAL_DOWNLOAD: DownloadingBlocks,
-    DogecoinException.WALLET_INSUFFICIENT_FUNDS: InsufficientFunds,
-    DogecoinException.WALLET_INVALID_ACCOUNT_NAME: InvalidAccountName,
-    DogecoinException.WALLET_KEYPOOL_RAN_OUT: KeypoolRanOut,
-    DogecoinException.WALLET_UNLOCK_NEEDED: WalletUnlockNeeded,
-    DogecoinException.WALLET_PASSPHRASE_INCORRECT: WalletPassphraseIncorrect,
-    DogecoinException.WALLET_WRONG_ENC_STATE: WalletWrongEncState,
-    DogecoinException.WALLET_ENCRYPTION_FAILED: WalletEncryptionFailed,
-    DogecoinException.WALLET_ALREADY_UNLOCKED: WalletAlreadyUnlocked,
+    SJWcoinException.FORBIDDEN_BY_SAFE_MODE: SafeMode,
+    SJWcoinException.TYPE_ERROR: JSONTypeError,
+    SJWcoinException.WALLET_ERROR: WalletError,
+    SJWcoinException.INVALID_ADDRESS_OR_KEY: InvalidAddressOrKey,
+    SJWcoinException.WALLET_INSUFFICIENT_FUNDS: InsufficientFunds,
+    SJWcoinException.OUT_OF_MEMORY: OutOfMemory,
+    SJWcoinException.INVALID_PARAMETER: InvalidParameter,
+    SJWcoinException.CLIENT_NOT_CONNECTED: NotConnected,
+    SJWcoinException.CLIENT_IN_INITIAL_DOWNLOAD: DownloadingBlocks,
+    SJWcoinException.WALLET_INSUFFICIENT_FUNDS: InsufficientFunds,
+    SJWcoinException.WALLET_INVALID_ACCOUNT_NAME: InvalidAccountName,
+    SJWcoinException.WALLET_KEYPOOL_RAN_OUT: KeypoolRanOut,
+    SJWcoinException.WALLET_UNLOCK_NEEDED: WalletUnlockNeeded,
+    SJWcoinException.WALLET_PASSPHRASE_INCORRECT: WalletPassphraseIncorrect,
+    SJWcoinException.WALLET_WRONG_ENC_STATE: WalletWrongEncState,
+    SJWcoinException.WALLET_ENCRYPTION_FAILED: WalletEncryptionFailed,
+    SJWcoinException.WALLET_ALREADY_UNLOCKED: WalletAlreadyUnlocked,
 }
 
 
 def wrap_exception(error):
     """
-    Convert a JSON error object to a more specific Dogecoin exception.
+    Convert a JSON error object to a more specific SJWcoin exception.
     """
     # work around to temporarily fix https://github.com/bitcoin/bitcoin/issues/3007
-    if error['code'] == DogecoinException.WALLET_ERROR and error['message'] == u'Insufficient funds':
-        error['code'] = DogecoinException.WALLET_INSUFFICIENT_FUNDS
-    return _exception_map.get(error['code'], DogecoinException)(error)
+    if error['code'] == SJWcoinException.WALLET_ERROR and error['message'] == u'Insufficient funds':
+        error['code'] = SJWcoinException.WALLET_INSUFFICIENT_FUNDS
+    return _exception_map.get(error['code'], SJWcoinException)(error)
