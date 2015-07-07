@@ -1,4 +1,4 @@
-dogecoin-python is a fork of bitcoin-python : https://github.com/laanwj/bitcoin-python
+sjwcoin-python is a fork of bitcoin-python ( and dogecoin-python) : https://github.com/laanwj/bitcoin-python
 
 It is a set of Python libraries that allows easy access to the
 dogecoin peer-to-peer cryptocurrency client API.
