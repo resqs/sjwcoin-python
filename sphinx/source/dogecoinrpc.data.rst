@@ -1,7 +1,7 @@
-:mod:`dogecoinrpc.data` --- Dogecoin RPC service, data objects
+:mod:`sjwcoinrpc.data` --- SJWcoin RPC service, data objects
 ====================================================================================
 
-.. automodule:: dogecoinrpc.data
+.. automodule:: sjwcoinrpc.data
    :members:
    :show-inheritance:
    

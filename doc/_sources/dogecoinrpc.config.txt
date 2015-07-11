@@ -1,7 +1,7 @@
-:mod:`dogecoinrpc.config` --- Utilities for reading dogecoin configuration files
+:mod:`sjwcoinrpc.config` --- Utilities for reading sjwcoin configuration files
 ====================================================================================
 
-.. automodule:: dogecoinrpc.config
+.. automodule:: sjwcoinrpc.config
    :members:
    :show-inheritance:
    

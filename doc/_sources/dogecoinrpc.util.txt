@@ -1,7 +1,7 @@
-:mod:`dogecoinrpc.util` --- Generic utilities used by dogecoin client library
+:mod:`sjwcoinrpc.util` --- Generic utilities used by sjwcoin client library
 ====================================================================================
 
-.. automodule:: dogecoinrpc.util
+.. automodule:: sjwcoinrpc.util
    :members:
    :show-inheritance:
    

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; dogecoin-python 0.1.3 documentation</title>
+    <title>Introduction &mdash; sjwcoin-python 0.1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="dogecoin-python 0.1.3 documentation" href="index.html" />
+    <link rel="top" title="sjwcoin-python 0.1.3 documentation" href="index.html" />
     <link rel="up" title="Getting Started" href="gettingstarted.html" />
     <link rel="next" title="Usage" href="usage.html" />
     <link rel="prev" title="Getting Started" href="gettingstarted.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="gettingstarted.html" title="Getting Started"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">dogecoin-python 0.1.3 documentation</a> &raquo;</li>
+        <li><a href="index.html">sjwcoin-python 0.1.3 documentation</a> &raquo;</li>
           <li><a href="gettingstarted.html" accesskey="U">Getting Started</a> &raquo;</li> 
       </ul>
     </div>  
@@ -58,12 +58,12 @@
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>The goal of this library is to make it easier for:</p>
 <ul class="simple">
-<li>Payment gateways to support dogecoin</li>
-<li>Merchant sites to integrate dogecoin payments directly</li>
-<li>Other services that require (micro-)payments to use dogecoin</li>
+<li>Payment gateways to support sjwcoin</li>
+<li>Merchant sites to integrate sjwcoin payments directly</li>
+<li>Other services that require (micro-)payments to use sjwcoin</li>
 </ul>
 <p>In this initial release it implements a thin wrapper around the
-Dogecoin JSON-RPC API. Using this API from Python directly is conceptually very simple,
+SJWcoin JSON-RPC API. Using this API from Python directly is conceptually very simple,
 here is the example from the API
 documentation page:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">jsonrpc</span> <span class="kn">import</span> <span class="n">ServiceProxy</span>
@@ -76,18 +76,18 @@ documentation page:</p>
 </div>
 <p>However, this approach has some disadvantages, one thing is that error handling is complex, as it
 requires manually checking the contents of <tt class="xref py py-const docutils literal"><span class="pre">JSONException</span></tt> objects.</p>
-<p><tt class="docutils literal"><span class="pre">dogecoin-python</span></tt> attempts to create an even more friendly interface by wrapping the JSON-RPC API. The major advantages
+<p><tt class="docutils literal"><span class="pre">sjwcoin-python</span></tt> attempts to create an even more friendly interface by wrapping the JSON-RPC API. The major advantages
 compared to a raw <tt class="docutils literal"><span class="pre">jsonrpc</span></tt> based approach are:</p>
 <ul class="simple">
-<li>Better exception handling. Exceptions are converted to subclasses of <a class="reference internal" href="dogecoinrpc.exceptions.html#dogecoinrpc.exceptions.DogecoinException" title="dogecoinrpc.exceptions.DogecoinException"><tt class="xref py py-class docutils literal"><span class="pre">DogecoinException</span></tt></a>.</li>
-<li>Automatic dogecoin configuration loading. In case the <tt class="docutils literal"><span class="pre">dogecoin</span> <span class="pre">-server</span></tt> or <tt class="docutils literal"><span class="pre">dogecoind</span></tt> program runs on the same
+<li>Better exception handling. Exceptions are converted to subclasses of <a class="reference internal" href="sjwcoinrpc.exceptions.html#sjwcoinrpc.exceptions.SJWcoinException" title="sjwcoinrpc.exceptions.SJWcoinException"><tt class="xref py py-class docutils literal"><span class="pre">SJWcoinException</span></tt></a>.</li>
+<li>Automatic sjwcoin configuration loading. In case the <tt class="docutils literal"><span class="pre">sjwcoin</span> <span class="pre">-server</span></tt> or <tt class="docutils literal"><span class="pre">sjwcoind</span></tt> program runs on the same
 machine as the client script, and as the same user, the configuration file can automatically be parsed. This
 makes it unneccesary to explicitly specify a <em>username</em> and <em>password</em>. Of course, this is still possible.</li>
 <li>Documentation in Pythonish format. You are reading this right now.</li>
 <li>The functions
-<a class="reference internal" href="dogecoinrpc.connection.html#dogecoinrpc.connection.DogecoinConnection.getinfo" title="dogecoinrpc.connection.DogecoinConnection.getinfo"><tt class="xref py py-func docutils literal"><span class="pre">getinfo()</span></tt></a>, <a class="reference internal" href="dogecoinrpc.connection.html#dogecoinrpc.connection.DogecoinConnection.listreceivedbyaccount" title="dogecoinrpc.connection.DogecoinConnection.listreceivedbyaccount"><tt class="xref py py-func docutils literal"><span class="pre">listreceivedbyaccount()</span></tt></a>,
-<a class="reference internal" href="dogecoinrpc.connection.html#dogecoinrpc.connection.DogecoinConnection.listreceivedbyaddress" title="dogecoinrpc.connection.DogecoinConnection.listreceivedbyaddress"><tt class="xref py py-func docutils literal"><span class="pre">listreceivedbyaddress()</span></tt></a>,
-<a class="reference internal" href="dogecoinrpc.connection.html#dogecoinrpc.connection.DogecoinConnection.listtransactions" title="dogecoinrpc.connection.DogecoinConnection.listtransactions"><tt class="xref py py-func docutils literal"><span class="pre">listtransactions()</span></tt></a> and more return actual Python objects, instead of simply
+<a class="reference internal" href="sjwcoinrpc.connection.html#sjwcoinrpc.connection.SJWcoinConnection.getinfo" title="sjwcoinrpc.connection.SJWcoinConnection.getinfo"><tt class="xref py py-func docutils literal"><span class="pre">getinfo()</span></tt></a>, <a class="reference internal" href="sjwcoinrpc.connection.html#sjwcoinrpc.connection.SJWcoinConnection.listreceivedbyaccount" title="sjwcoinrpc.connection.SJWcoinConnection.listreceivedbyaccount"><tt class="xref py py-func docutils literal"><span class="pre">listreceivedbyaccount()</span></tt></a>,
+<a class="reference internal" href="sjwcoinrpc.connection.html#sjwcoinrpc.connection.SJWcoinConnection.listreceivedbyaddress" title="sjwcoinrpc.connection.SJWcoinConnection.listreceivedbyaddress"><tt class="xref py py-func docutils literal"><span class="pre">listreceivedbyaddress()</span></tt></a>,
+<a class="reference internal" href="sjwcoinrpc.connection.html#sjwcoinrpc.connection.SJWcoinConnection.listtransactions" title="sjwcoinrpc.connection.SJWcoinConnection.listtransactions"><tt class="xref py py-func docutils literal"><span class="pre">listtransactions()</span></tt></a> and more return actual Python objects, instead of simply
 dictionaries. This makes for cleaner code, as the fields can simply be addressed with <tt class="docutils literal"><span class="pre">x.foo</span></tt> instead of
 <tt class="docutils literal"><span class="pre">x['foo']</span></tt>.</li>
 </ul>
@@ -143,7 +143,7 @@ dictionaries. This makes for cleaner code, as the fields can simply be addressed
         <li class="right" >
           <a href="gettingstarted.html" title="Getting Started"
              >previous</a> |</li>
-        <li><a href="index.html">dogecoin-python 0.1.3 documentation</a> &raquo;</li>
+        <li><a href="index.html">sjwcoin-python 0.1.3 documentation</a> &raquo;</li>
           <li><a href="gettingstarted.html" >Getting Started</a> &raquo;</li> 
       </ul>
     </div>

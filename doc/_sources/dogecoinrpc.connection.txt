@@ -1,7 +1,7 @@
-:mod:`dogecoinrpc.connection` --- Connect to Dogecoin server via JSON-RPC
+:mod:`sjwcoinrpc.connection` --- Connect to SJWcoin server via JSON-RPC
 ====================================================================================
 
-.. automodule:: dogecoinrpc.connection
+.. automodule:: sjwcoinrpc.connection
    :members:
    :show-inheritance:
 

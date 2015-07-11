@@ -1,15 +1,15 @@
 # coding=utf-8
 '''
 Test script
-*WARNING* Don't run this on a production dogecoin server! *WARNING*
+*WARNING* Don't run this on a production sjwcoin server! *WARNING*
 Only on the test network.
 '''
 import argparse
 import sys
 sys.path.append('../src')
 
-import dogecoinrpc
-from dogecoinrpc.exceptions import DogecoinException, InsufficientFunds
+import sjwcoinrpc
+from sjwcoinrpc.exceptions import SJWcoinException, InsufficientFunds
 
 
 from decimal import Decimal
@@ -25,20 +25,20 @@ args = parser.parse_args()
 if __name__ == "__main__":
 
     if args.config:
-        from dogecoinrpc.config import read_config_file
+        from sjwcoinrpc.config import read_config_file
         cfg = read_config_file(args.config)
     else:
-        from dogecoinrpc.config import read_default_config
+        from sjwcoinrpc.config import read_default_config
         cfg = read_default_config(None)
     port = int(cfg.get('rpcport', '22555'))
     rpcuser = cfg.get('rpcuser', '')
 
     connections = []
     if not args.nolocal:
-        local_conn = dogecoinrpc.connect_to_local()  # will use read_default_config
+        local_conn = sjwcoinrpc.connect_to_local()  # will use read_default_config
         connections.append(local_conn)
     if not args.noremote:
-        remote_conn = dogecoinrpc.connect_to_remote(
+        remote_conn = sjwcoinrpc.connect_to_remote(
                 user=rpcuser, password=cfg['rpcpassword'], host='localhost',
                 port=port, use_https=False)
         connections.append(remote_conn)
@@ -56,15 +56,15 @@ if __name__ == "__main__":
         assert(type(conn.gethashespersec()) is int)
         account = "testaccount"
         account2 = "testaccount2"
-        dogecoinaddress = conn.getnewaddress(account)
-        conn.setaccount(dogecoinaddress, account)
+        sjwcoinaddress = conn.getnewaddress(account)
+        conn.setaccount(sjwcoinaddress, account)
         address = conn.getaccountaddress(account)
         address2 = conn.getaccountaddress(account2)
         assert(conn.getaccount(address) == account)
         addresses = conn.getaddressesbyaccount(account)
         assert(address in addresses)
-        #conn.sendtoaddress(dogecoinaddress, amount, comment=None, comment_to=None)
-        conn.getreceivedbyaddress(dogecoinaddress)
+        #conn.sendtoaddress(sjwcoinaddress, amount, comment=None, comment_to=None)
+        conn.getreceivedbyaddress(sjwcoinaddress)
         conn.getreceivedbyaccount(account)
         conn.listreceivedbyaddress()
         conn.listreceivedbyaccount()
@@ -75,8 +75,8 @@ if __name__ == "__main__":
         assert(x.isvalid == False)
         messages = ('Hello, world!', u'かたな')
         for message in messages:
-            signature = conn.signmessage(dogecoinaddress, message)
-            assert(conn.verifymessage(dogecoinaddress, signature, message) is True)
+            signature = conn.signmessage(sjwcoinaddress, message)
+            assert(conn.verifymessage(sjwcoinaddress, signature, message) is True)
 
         for accid in conn.listaccounts(as_dict=True).iterkeys():
           tx = conn.listtransactions(accid)
@@ -88,7 +88,7 @@ if __name__ == "__main__":
         assert(type(conn.listunspent()) is list)  # needs better testing
 
         try:
-            conn.sendtoaddress(dogecoinaddress, 10000000)
+            conn.sendtoaddress(sjwcoinaddress, 10000000)
             assert(0)  # Should raise InsufficientFunds
         except InsufficientFunds:
             pass

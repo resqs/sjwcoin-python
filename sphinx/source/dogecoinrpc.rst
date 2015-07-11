@@ -1,7 +1,7 @@
-:mod:`dogecoinrpc` --- Convenience functions
+:mod:`sjwcoinrpc` --- Convenience functions
 ====================================================================================
 
-.. automodule:: dogecoinrpc
+.. automodule:: sjwcoinrpc
    :members:
    :show-inheritance:
       

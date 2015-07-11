@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# dogecoin-python documentation build configuration file, created by
+# sjwcoin-python documentation build configuration file, created by
 # sphinx-quickstart on Fri Dec 10 21:45:49 2010.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -37,7 +37,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'dogecoin-python'
+project = u'sjwcoin-python'
 copyright = u'2013, bitcoin-python developers'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -159,7 +159,7 @@ html_static_path = ['_static']
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'dogecoin-pythondoc'
+htmlhelp_basename = 'sjwcoin-pythondoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -173,7 +173,7 @@ htmlhelp_basename = 'dogecoin-pythondoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'dogecoin-python.tex', u'dogecoin-python Documentation',
+  ('index', 'sjwcoin-python.tex', u'sjwcoin-python Documentation',
    u'Witchspace', 'manual'),
 ]
 

@@ -20,7 +20,7 @@
 
 2014-01-27 23:08:33 +0100 Jean-Christophe Saad-Dupuy 
 
-	* Added support for loading dogecoin.conf under windows
+	* Added support for loading sjwcoin.conf under windows
 
 2014-01-26 23:00:57 +0100 jcsaaddupuy 
 
@@ -32,7 +32,7 @@
 
 2014-01-26 23:05:31 +0100 Jean-Christophe Saad-Dupuy 
 
-	* updated dogecoin-qt connection instructions
+	* updated sjwcoin-qt connection instructions
 
 2014-01-22 02:26:02 +0100 Jean-Christophe Saad-Dupuy 
 
@@ -40,7 +40,7 @@
 
 2014-01-22 02:24:44 +0100 Jean-Christophe Saad-Dupuy 
 
-	* Added instruction for connection with dogecoin-t
+	* Added instruction for connection with sjwcoin-t
 
 2014-01-21 18:51:36 +0100 Jean-Christophe Saad-Dupuy 
 
@@ -96,11 +96,11 @@
 
 2014-01-20 19:41:43 +0100 Jean-Christophe Saad-Dupuy 
 
-	* Migration bitcoin -> dogecoin
+	* Migration bitcoin -> sjwcoin
 
 2014-01-20 19:12:31 +0100 Jean-Christophe Saad-Dupuy 
 
-	* Changed bitcoin -> dogecoin
+	* Changed bitcoin -> sjwcoin
 
 2013-12-26 10:33:05 +0100 Wladimir J. van der Laan 
 

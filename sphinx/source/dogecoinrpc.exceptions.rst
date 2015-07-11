@@ -1,7 +1,7 @@
-:mod:`dogecoinrpc.exceptions` --- Exception definitions
+:mod:`sjwcoinrpc.exceptions` --- Exception definitions
 ====================================================================================
 
-.. automodule:: dogecoinrpc.exceptions
+.. automodule:: sjwcoinrpc.exceptions
    :members:
    :show-inheritance:
       
