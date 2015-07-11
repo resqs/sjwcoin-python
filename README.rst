@@ -1,4 +1,4 @@
-sjwcoin-python is a fork of bitcoin-python ( and sjwcoin-python) : https://github.com/laanwj/bitcoin-python
+sjwcoin-python is a fork of bitcoin-python ( and dogecoin-python) : https://github.com/laanwj/bitcoin-python
 
 It is a set of Python libraries that allows easy access to the
 sjwcoin peer-to-peer cryptocurrency client API.
